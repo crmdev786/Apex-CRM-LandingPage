@@ -37,6 +37,12 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class RequestAccessInput(BaseModel):
+    name: str
+    dealership: str
+    email: str
+    volume: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
@@ -65,6 +71,14 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+@api_router.post("/request-access")
+async def request_access(input: RequestAccessInput):
+    doc = input.model_dump()
+    doc['id'] = str(uuid.uuid4())
+    doc['timestamp'] = datetime.now(timezone.utc).isoformat()
+    await db.access_requests.insert_one(doc)
+    return {"success": True, "message": "Access request received. We'll be in touch within 24 hours."}
 
 # Include the router in the main app
 app.include_router(api_router)
