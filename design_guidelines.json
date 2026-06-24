@@ -1,0 +1,129 @@
+{
+  "project_name": "APEX CRM Landing Page",
+  "theme": "light",
+  "archetype": "High-End Luxury / High-Contrast Minimalist (Archetype 4/5 Hybrid)",
+  "design_philosophy": "High-end gallery-style light mode. Crisp studio whites, silver finishes, muted slate accents. Pure monochrome spectrum. Advanced glass-morphic architecture, ultra-fine borders, soft ambient shadows. Zero image files; everything is a coded UI component.",
+  "typography": {
+    "primary_font": {
+      "family": "'Inter Tight', sans-serif",
+      "usage": "All structural headers, navigation, buttons, and paragraphs.",
+      "weights": [300, 400, 500, 600],
+      "import_url": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap"
+    },
+    "secondary_font": {
+      "family": "'JetBrains Mono', monospace",
+      "usage": "All data points, percentages, timestamps, metrics, technical labels, and simulated dashboard numbers.",
+      "weights": [400, 500],
+      "import_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+    },
+    "hierarchy": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter leading-tight text-zinc-950",
+      "h2": "text-3xl md:text-4xl font-medium tracking-tight text-zinc-900",
+      "h3": "text-xl md:text-2xl font-medium tracking-tight text-zinc-800",
+      "body": "text-base md:text-lg text-zinc-500 font-light leading-relaxed",
+      "data_label": "font-mono text-xs uppercase tracking-[0.2em] text-zinc-400",
+      "data_value": "font-mono text-2xl md:text-3xl font-medium text-zinc-900"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#ffffff",
+      "secondary": "#fafafa",
+      "tertiary": "#f4f4f5"
+    },
+    "text": {
+      "primary": "#09090b",
+      "secondary": "#52525b",
+      "tertiary": "#a1a1aa",
+      "inverse": "#ffffff"
+    },
+    "border": {
+      "light": "rgba(0,0,0,0.05)",
+      "medium": "rgba(0,0,0,0.1)",
+      "heavy": "#18181b"
+    },
+    "accents": {
+      "silver": "#e4e4e7",
+      "slate": "#71717a",
+      "charcoal": "#27272a",
+      "black": "#000000"
+    },
+    "forbidden": ["blue", "purple", "red", "green", "orange", "yellow", "teal", "cyan", "pink"]
+  },
+  "spacing_and_layout": {
+    "containers": "max-w-7xl mx-auto px-6 md:px-12",
+    "section_padding": "py-24 md:py-32",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-12 gap-6",
+    "surface_styles": {
+      "glassmorphism": "bg-white/70 backdrop-blur-xl border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.04)]",
+      "cards": "bg-white border border-black/5 rounded-2xl p-8 shadow-sm",
+      "coded_mockup": "bg-[#fcfcfc] border border-black/10 rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
+    }
+  },
+  "animations": {
+    "engine": "framer-motion",
+    "globals": {
+      "spring_physics": { "type": "spring", "stiffness": 100, "damping": 20 }
+    },
+    "specifics": {
+      "staggered_reveal": "Use variants with staggerChildren: 0.1, initial { opacity: 0, y: 20 }, animate { opacity: 1, y: 0 }",
+      "magnetic_buttons": "Wrap buttons in a framer-motion component tracking mouse position for subtle x/y shifts (max 10px) on hover.",
+      "card_3d_tilt": "onMouseMove calculates relative mouse X/Y center. map to rotateX and rotateY (range -5deg to 5deg). Reset to 0 onMouseLeave.",
+      "light_sweep": "Use a subtle linear gradient pseudo-element that translates across the card based on mouse position or loops on hover.",
+      "number_count_up": "Use framer-motion useInView and animate() to count from 0 to target number."
+    }
+  },
+  "sections_and_components": {
+    "navigation": {
+      "layout": "Fixed top, floating dock. rounded-full mx-auto mt-6 px-6 py-3 max-w-fit flex items-center gap-8",
+      "style": "bg-white/80 backdrop-blur-2xl border border-black/5 shadow-sm",
+      "logo": "APEX typographic logo. font-sans font-bold tracking-tighter text-xl",
+      "links": "text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
+    },
+    "hero": {
+      "layout": "text-center pt-32 pb-20 flex flex-col items-center gap-8",
+      "headline": "Premium, highly condensed. E.g. 'The Operating System for Elite Dealerships.'",
+      "ctas": "Primary CTA: 'Request Access' (solid black, opens modal). Secondary: 'View Capabilities' (ghost with border).",
+      "mockup": "Coded UI dashboard below the hero text. A window containing a sidebar (left 20%), main content area (right 80%). Inside: simulated charts (using div heights), recent leads list (font-mono data points), active inventory metrics. ALL pure code (divs, spans), strict monochrome, high-end gallery feel."
+    },
+    "metrics_bar": {
+      "layout": "grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-y border-black/5",
+      "content": "Three main metrics: '+38% Closing Rate', '-45m Response Time', '100% Inventory Control'. Use JetBrains Mono for numbers. Apply framer-motion count-up."
+    },
+    "core_capabilities": {
+      "layout": "Bento grid structure. 3 items.",
+      "cards": [
+        { "title": "Lead Routing", "desc": "Algorithmic distribution of incoming leads.", "span": "col-span-12 md:col-span-8" },
+        { "title": "Inventory Matrix", "desc": "Real-time sync across all floors.", "span": "col-span-12 md:col-span-4" },
+        { "title": "Smart Follow-Ups", "desc": "Automated sequences for maximum conversion.", "span": "col-span-12" }
+      ],
+      "interaction": "3D perspective tilt on hover, with a sheer gradient light sweep."
+    },
+    "comparison_table": {
+      "layout": "Minimalist table, no vertical borders. Generous padding.",
+      "style": "Headers in Inter Tight, data/features in font-mono if technical. Checkmarks for APEX, empty/minus for legacy.",
+      "rows": ["Real-time Sync", "Predictive Analytics", "Mobile Showroom", "API Extensibility"]
+    },
+    "logo_ticker": {
+      "layout": "Continuous horizontal scroll (marquee).",
+      "style": "Monochrome text-only typographic logos (CDK Global, Lightspeed, Elead) with varying font weights/styles to simulate logos without images. Very low contrast text (text-zinc-300).",
+      "animation": "react-fast-marquee or framer-motion infinite translate-x loop."
+    },
+    "request_access_modal": {
+      "style": "Glassmorphic overlay (bg-black/20 backdrop-blur-sm). Modal card: bg-white rounded-2xl p-8 border border-black/5 shadow-2xl.",
+      "form": "Minimal inputs (Name, Dealership, Volume). Coded with Shadcn-like customized inputs (border-b only, or extremely soft ring). Solid black submit button."
+    },
+    "footer": {
+      "layout": "Massive top padding (py-32). Minimalist structure. 2 columns: Brand info vs Legal links.",
+      "style": "bg-white border-t border-black/5. Subtle text. Huge 'APEX' watermark logo spanning the bottom."
+    }
+  },
+  "media_and_assets": {
+    "images": "FORBIDDEN. Do not use img tags, next/image, or background images.",
+    "icons": "Use lucide-react (pure SVG components). Stroke width 1.5. Colors must be zinc-900 or zinc-400.",
+    "logos": "All partner logos in the ticker must be pure text/CSS typographic recreations."
+  },
+  "testing_requirements": {
+    "data_testids": "Apply data-testid to ALL interactive elements. Examples: 'nav-request-access-button', 'hero-cta-primary', 'modal-close-button', 'submit-lead-form'."
+  }
+}
